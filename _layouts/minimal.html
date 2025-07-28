@@ -1,31 +1,113 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>{{ page.title }}</title>
-    <style>
-      body {
-        max-width: 600px;
-        margin: 4rem auto;
-        font-family: sans-serif;
-        line-height: 1.6;
-        color: #222;
-      }
-      h1 {
-        font-weight: normal;
-      }
-      ul {
-        list-style: none;
-        padding-left: 0;
-      }
-      li {
-        margin-bottom: 0.5rem;
-      }
-    </style>
-  </head>
-  <body>
-    {{ content }}
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Montserrat font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff;
+      color: #222;
+      margin: 0;
+      padding: 4rem 1.5rem;
+    }
+
+    .page-wrapper {
+      display: flex;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+      flex: 3;
+      padding-right: 2rem;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: auto;
+      margin-right: 2rem;
+    }
+
+    .text-block {
+      line-height: 1.75;
+      text-align: justify;
+      word-spacing: 0.05rem;
+      max-width: 42rem;
+    }
+
+    .text-block h1 {
+      margin-top: 0;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0 0 0;
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar {
+      flex: 1;
+      border-left: 1px solid #eee;
+      padding-left: 2rem;
+      font-size: 0.9rem;
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0;
+    }
+
+    .sidebar h3 {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      {{ content }}
+    </div>
+    <div class="sidebar">
+      <h2>Blog Posts</h2>
+      {% assign posts_by_month = site.posts | group_by_exp:"post", "post.date | date: '%B %Y'" %}
+      {% for month in posts_by_month %}
+        <h3>{{ month.name }}</h3>
+        <ul>
+          {% for post in month.items %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
