@@ -1,1 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-29T03:25:23+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Virtual Threads Java</title><link href="http://localhost:4000/2025/07/29/virtual-threads-java.html" rel="alternate" type="text/html" title="Virtual Threads Java" /><published>2025-07-29T00:00:00+05:30</published><updated>2025-07-29T00:00:00+05:30</updated><id>http://localhost:4000/2025/07/29/virtual-threads-java</id><content type="html" xml:base="http://localhost:4000/2025/07/29/virtual-threads-java.html"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-08-21T22:21:17+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Bill Pugh Singleton</title><link href="http://localhost:4000/2025/08/07/bill-pugh-singleton.html" rel="alternate" type="text/html" title="Bill Pugh Singleton" /><published>2025-08-07T00:00:00+05:30</published><updated>2025-08-07T00:00:00+05:30</updated><id>http://localhost:4000/2025/08/07/bill-pugh-singleton</id><content type="html" xml:base="http://localhost:4000/2025/08/07/bill-pugh-singleton.html"><![CDATA[<p>Bill Pugh’s singleton is a way to design a lazily loaded, thread-safe singleton in Java. In this post, I’ll first cover the need for lazily loaded and thread-safe singletons and then see how this design pattern solves both of these cases elegantly.</p>
+
+<p>##Naive Implementation 1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class ExpensiveObject {
+	private ExpensiveObject instance;
+        public static ExpensiveObject getInstance() {
+		if(instance == null) {
+			instance = new ExpensiveObject();
+		}
+		return instance;
+        }	
+
+}
+</code></pre></div></div>
+<p>This implementation is non thread-safe due to two reasons:</p>
+<ol>
+  <li>
+    <p>Two threads calling the <code class="language-plaintext highlighter-rouge">getInstance()</code> method can have a race condition - Both might execute the check-then-act compound action concurrently (if instance is <code class="language-plaintext highlighter-rouge">null</code>, create a new instance). This might create multiple instances of the object in the JVM, violating the singleton invariant.</p>
+  </li>
+  <li>
+    <p>Even if there is no race condition, the code suffers from memory visibility problem due to Java’s memory model. One thread might create an instance of <code class="language-plaintext highlighter-rouge">ExpensiveObject</code> and assign it to <code class="language-plaintext highlighter-rouge">instance</code>, but the other thread might not even see it.</p>
+  </li>
+</ol>
+
+<p>A better implementation of this is perhaps to use sycnhronisation:</p>
+
+<p>##Naive Implementation 2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class ExpensiveObject {
+	private ExpensiveObject instance;
+        public static ExpensiveObject getInstance() {
+		if(instance == null) {
+			instance = new ExpensiveObject();
+		}
+		return instance;
+        }	
+
+}
+</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Bill Pugh’s singleton is a way to design a lazily loaded, thread-safe singleton in Java. In this post, I’ll first cover the need for lazily loaded and thread-safe singletons and then see how this design pattern solves both of these cases elegantly.]]></summary></entry><entry><title type="html">Virtual Threads Java</title><link href="http://localhost:4000/2025/07/29/virtual-threads-java.html" rel="alternate" type="text/html" title="Virtual Threads Java" /><published>2025-07-29T00:00:00+05:30</published><updated>2025-07-29T00:00:00+05:30</updated><id>http://localhost:4000/2025/07/29/virtual-threads-java</id><content type="html" xml:base="http://localhost:4000/2025/07/29/virtual-threads-java.html"><![CDATA[]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry></feed>

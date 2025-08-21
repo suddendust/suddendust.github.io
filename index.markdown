@@ -8,7 +8,7 @@ title: Prashant Pandey
 
   <div class="text-block">
     <h1>Prashant Pandey</h1>
-    <p>I am a staff engineer at <a href="https://www.harness.io/">Harness</a> working on the core data platform. Before joining Harness, I worked for Startree Inc.  where I worked closely on Apache Pinot, designingcore features like <a href="https://docs.google.com/document/d/1Q_PgVN2WpKfAyagBzwPTU1KXV3tp1kuVfGRH4J6F8xk/edit?tab=t.0#heading=h.kcuujbxeyw2s">RLS/CLS</a> and Graviton readiness and certification. I have larely worked with massively concurrent applications for the entirety of my career and enjoy building highly concurrent and data intensive applications.</p>
+    <p>I am a Staff Engineer at Harness Inc., where I work on the core data platform that enables Traceable's (now merged with Harness) core observability plaform. Previously, at Startree Inc., I drove key initiatives in Apache Pinot, including Graviton readiness, row and column-level authorization, live-cluster migration tooling, and observability enhancements, while actively contributing to open-source. My career has focused on building massively concurrent, distributed, and cost-efficient systems that scale to millions of events per second and enable data-driven applications. If you’d like to discuss real-time data systems, distributed infrastructure, or open-source collaboration, you can reach me at pandepra1 [at] outlook [dot] com.</p>
 
     <ul>
       <li><a href="https://github.com/suddendust">GitHub</a></li>
