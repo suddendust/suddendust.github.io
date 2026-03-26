@@ -1,6 +1,6 @@
-# Career Launchpad — EdTech Program Website
+# CrackMyInterview — Interview Prep by BITS Pilani Engineers
 
-**A premium, fully responsive educational program website for Career Launchpad**, a high-impact short-term training provider that bridges the gap between college education and industry requirements across India.
+**Interview preparation and placement training by BITS Pilani 2018 alumni & Staff Engineers** from Razorpay, PayU, Harness, StarTree, and Multiplier. Founded by Prashant Pandey and Utkarsh Vaish — engineers who've been on both sides of the interview table.
 
 ---
 

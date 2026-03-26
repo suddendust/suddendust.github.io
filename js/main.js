@@ -365,7 +365,85 @@
   }
 
   // ============================================================
-  // 12. FORM VALIDATION FEEDBACK
+  // 12. FORM HANDLERS - Mailto redirect
+  // ============================================================
+
+  function handlePartnerForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    
+    // Get form values
+    const name = form.querySelector('input[placeholder*="Name"]')?.value || '';
+    const designation = form.querySelector('input[placeholder*="TPO"]')?.value || '';
+    const college = form.querySelector('input[placeholder*="college name"]')?.value || '';
+    const phone = form.querySelector('input[type="tel"]')?.value || '';
+    const email = form.querySelector('input[type="email"]')?.value || '';
+    const batchSize = form.querySelector('select')?.value || '';
+    const program = form.querySelectorAll('select')[1]?.value || '';
+    const message = form.querySelector('textarea')?.value || '';
+    
+    const whatsappMessage = encodeURIComponent(
+      `*College Partnership Inquiry*\n\n` +
+      `Name: ${name}\n` +
+      `Designation: ${designation}\n` +
+      `College: ${college}\n` +
+      `Phone: ${phone}\n` +
+      `Email: ${email}\n` +
+      `Batch Size: ${batchSize}\n` +
+      `Preferred Program: ${program}\n\n` +
+      `Message: ${message}`
+    );
+    
+    window.open(`https://wa.me/917011960403?text=${whatsappMessage}`, '_blank');
+    
+    // Show success message
+    const successEl = document.getElementById('partnerSuccess');
+    if (successEl) {
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    }
+  }
+
+  function handleContactForm(event) {
+    event.preventDefault();
+    const form = event.target;
+    
+    // Get form values
+    const name = form.querySelector('input[placeholder*="full name"]')?.value || '';
+    const email = form.querySelector('input[type="email"]')?.value || '';
+    const phone = form.querySelector('input[type="tel"]')?.value || '';
+    const college = form.querySelector('input[placeholder*="college or company"]')?.value || '';
+    const role = form.querySelector('select')?.value || '';
+    const program = form.querySelectorAll('select')[1]?.value || '';
+    const message = form.querySelector('textarea')?.value || '';
+    
+    const whatsappMessage = encodeURIComponent(
+      `*Contact Form Inquiry*\n\n` +
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Phone: ${phone}\n` +
+      `College/Organisation: ${college}\n` +
+      `Role: ${role}\n` +
+      `Interested In: ${program}\n\n` +
+      `Message: ${message}`
+    );
+    
+    window.open(`https://wa.me/917011960403?text=${whatsappMessage}`, '_blank');
+    
+    // Show success message
+    const successEl = document.getElementById('contactSuccess');
+    if (successEl) {
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    }
+  }
+
+  // Make form handlers globally available
+  window.handlePartnerForm = handlePartnerForm;
+  window.handleContactForm = handleContactForm;
+
+  // ============================================================
+  // 13. FORM VALIDATION FEEDBACK
   // ============================================================
 
   function initFormValidation() {
