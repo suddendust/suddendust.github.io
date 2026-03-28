@@ -108,7 +108,7 @@ All content is hardcoded into HTML pages. No database is used. The site is fully
 ## 🔮 Recommended Next Steps
 
 1. **Backend / Lead Capture** — Connect forms to a CRM (HubSpot, Zoho) or email service (Mailchimp)
-2. **WhatsApp Number** — Update `+91 98765 43210` with actual number across all pages
+2. **WhatsApp Number** — Currently set to `+91 70119 60403`
 3. **Email Addresses** — Replace `hello@careerlaunchpad.in` with real email
 4. **Analytics** — Add Google Analytics 4 or Hotjar for user behaviour tracking
 5. **Blog Section** — Add a content marketing blog for SEO
