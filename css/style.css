@@ -2286,6 +2286,8 @@ footer {
   .hero-badge {
     text-align: center;
     justify-content: center;
+    width: 100%;
+    display: flex;
   }
   
   .hero-stat-divider {
